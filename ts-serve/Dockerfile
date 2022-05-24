@@ -1,6 +1,9 @@
-FROM tensorflow/serving
+FROM tensorflow/serving:latest-gpu
 
 RUN mkdir -p /home/app
+
+# https://forums.developer.nvidia.com/t/updating-the-cuda-linux-gpg-repository-key/212897/7
+RUN sed -i '/developer\.download\.nvidia\.com\/compute\/cuda\/repos/d' /etc/apt/sources.list.d/* && sed -i '/developer\.download\.nvidia\.com\/compute\/machine-learning\/repos/d' /etc/apt/sources.list.d/*
 
 RUN apt-get update \
     && apt-get install curl -yy

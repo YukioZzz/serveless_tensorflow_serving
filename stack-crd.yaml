@@ -1,0 +1,19 @@
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: ts-serve
+  namespace: openfaas-fn
+spec:
+  name: ts-serve
+  image: yukiozhu/ts-serve
+  limits:
+    cpu: "200m"
+    memory: "256Mi"
+    gpucore: "50"
+    gpumemo: "8"
+  requests:
+    cpu: "10m"
+    memory: "128Mi"
+    gpucore: "50"
+    gpumemo: "8"
+
